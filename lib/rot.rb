@@ -56,6 +56,3 @@ class Rot
     end
   end
 end
-
-sample = Rot.new ("a")
-puts sample.decrypt(5)
