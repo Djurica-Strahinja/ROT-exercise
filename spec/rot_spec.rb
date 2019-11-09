@@ -19,12 +19,19 @@ describe Rot do
       end
     end
 
-    context "run with key: 2" do
-      it "returns shifted by two" do
-        sample = Rot.new("abc")
-        expect(sample.encrypt(2)).to eql("cde")
-        end
+  context "run with key: 2" do
+    it "returns shifted by two" do
+      sample = Rot.new("abc")
+      expect(sample.encrypt(2)).to eql("cde")
       end
+    end
+
+  context "run with key: 2, and punctations 'What is your name? My name is: John.'" do
+    it "returns words shifted by two, and punctations 'Yjcv ku aqwt pcog? Oa pcog ku: Lqjp.'" do
+      sample = Rot.new("What is your name? My name is: John.")
+      expect(sample.encrypt(2)).to eql("Yjcv ku aqwt pcog? Oa pcog ku: Lqjp.")
+      end
+    end
 
 
 
@@ -145,6 +152,12 @@ describe Rot do
     it "returns word decrypted by key: 13, and get 'The quick brown fox jumps over the lazy dog.'" do
       sample = Rot.new("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
       expect(sample.decrypt(13)).to eql("The quick brown fox jumps over the lazy dog.")
+      end
+    end
+  context "run with key: 2, and punctations 'Yjcv ku aqwt pcog? Oa pcog ku: Lqjp.'" do
+    it "returns decrypted words with key: 2, and punctations" do
+      sample = Rot.new("Yjcv ku aqwt pcog? Oa pcog ku: Lqjp.")
+      expect(sample.decrypt(2)).to eql("What is your name? My name is: John.")
       end
     end
 end
