@@ -1,42 +1,61 @@
+#!/usr/bin/env ruby
+
 class Rot
   def initialize(sentence)
     @sentence = sentence
-    @coded = ""
+
   end
 
 
   def encrypt(key=0)
-    charList = ("a".."z").to_a
+    charListSmall = ("a".."z").to_a
+    charListCapitalize = ("A".."Z").to_a
+    coded = ""
 
     @sentence.each_char do |i|
-      if i == " "
-        @coded += " "
+      if [" ", ",", ".", ":","!", "?"].include? i
+        coded += i
+      elsif
+        index = charListSmall.find_index(i)
+        newIndex = (index + key) % charListSmall.length
+        coded += charListSmall[newIndex]
       else
-        index = charList.find_index(i)
-        newIndex = (index + key) % charList.length
-        @coded += charList[newIndex]
+        index = charListCapitalize.find_index(i)
+        newIndex = (index + key) % charListCapitalize.length
+        coded += charListCapitalize[newIndex]
       end
     end
-    return  @coded
+    coded
   end
 
   def decrypt(key=0)
-    charList = ("a".."z").to_a
+    charListSmall = ("a".."z").to_a
+    charListCapitalize = ("A".."Z").to_a
     decoded = ""
 
     if key == 0
       return @sentence
     else
       @sentence.each_char do |i|
-        if i == " "
-          decoded += " "
+        if [" ", ",", ".", ":","!", "?"].include? i
+          decoded += i
+        elsif
+
+          index = charListSmall.find_index(i)
+          newIndex = (index - key) % charListSmall.length
+          decoded += charListSmall[newIndex]
+
         else
-          index = charList.find_index(i)
-          newIndex = (index - key) % charList.length
-          decoded += charList[newIndex]
+          index = charListCapitalize.find_index(i)
+          newIndex = (index - key) % charListCapitalize.length
+          decoded += charListCapitalize[newIndex]
         end
+
       end
-      return  decoded
+      decoded
     end
   end
 end
+
+sample = Rot.new ("a")
+puts sample.decrypt(5)
