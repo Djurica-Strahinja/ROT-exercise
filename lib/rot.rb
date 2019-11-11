@@ -3,26 +3,28 @@
 class Rot
   def initialize(sentence)
     @sentence = sentence
-
   end
 
-
   def encrypt(key=0)
-    charListSmall = ("a".."z").to_a
-    charListCapitalize = ("A".."Z").to_a
     coded = ""
+    key_mod = key % 25
+    @sentence.each_char do |letter|
+      if (65..90).include? letter.ord
+        new = (letter.ord + key_mod)
+        if new > 90
+        new = new % 90 + 65
+        end
+        coded +=  new.chr
 
-    @sentence.each_char do |i|
-      if [" ", ",", ".", ":","!", "?"].include? i
-        coded += i
-      elsif
-        index = charListSmall.find_index(i)
-        newIndex = (index + key) % charListSmall.length
-        coded += charListSmall[newIndex]
+      elsif (97..122).include? letter.ord
+        new = (letter.ord + key_mod)
+        if new > 122
+        new = new % 122 + 97
+        end
+        coded +=  new.chr
+        
       else
-        index = charListCapitalize.find_index(i)
-        newIndex = (index + key) % charListCapitalize.length
-        coded += charListCapitalize[newIndex]
+        coded += letter
       end
     end
     coded
