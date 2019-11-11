@@ -8,13 +8,13 @@ def encrypt(sentence, key=0)
     if (65..90).include? letter.ord
       new = (letter.ord + key_mod)
       if new > 90
-      new = new % 90 + 65
+      new = new % 90 + 64
       end
       coded +=  new.chr
     elsif (97..122).include? letter.ord
       new = (letter.ord + key_mod)
       if new > 122
-      new = new % 122 + 97
+      new = new % 122 + 96
       end
       coded +=  new.chr
     else
