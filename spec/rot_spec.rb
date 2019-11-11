@@ -85,3 +85,4 @@ describe Rot do
       expect(sample.encrypt(13)).to eql("The quick brown fox jumps over the lazy dog.")
       end
     end
+  end
