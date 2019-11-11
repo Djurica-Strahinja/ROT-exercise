@@ -3,8 +3,6 @@ arg = ARGV
 def encrypt(sentence, key=0)
   coded = ""
   key_mod = key % 25
-  sentence.to_s
-  key.to_i
   sentence.each_char do |letter|
 
     if (65..90).include? letter.ord
