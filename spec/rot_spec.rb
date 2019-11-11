@@ -32,8 +32,8 @@ describe Rot do
 
   context "run with key: 27" do
     it "returns words shifted by key: 1'" do
-      sample = Rot.new("abc abc")
-      expect(sample.encrypt(27)).to eql("bcd bcd")
+      sample = Rot.new("abc")
+      expect(sample.encrypt(27)).to eql("bcd")
       end
     end
 
