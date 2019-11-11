@@ -7,7 +7,7 @@ describe Rot do
   context "run without key" do
     it "returns unchanged sentence" do
       sample = Rot.new("abc")
-      expect(sample.encrypt()).to eql("abc")
+      expect(sample.encrypt).to eql("abc")
       end
     end
   end
@@ -83,10 +83,4 @@ qbt.'" do
       expect(sample.encrypt(13)).to eql("The quick brown fox jumps over the lazy dog.")
       end
     end
-
-
-
-
-
-
   end
