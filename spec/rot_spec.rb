@@ -15,11 +15,9 @@ describe Rot do
       expect(sample.encrypt(1)).to eql("bcd")
     end
 
-  context "run with key: 2" do
-    it "returns shifted by two" do
+    it "returns shifted by key: 2 when argument is 2" do
       sample = Rot.new("abc")
       expect(sample.encrypt(2)).to eql("cde")
-      end
     end
 
   context "run with key: 2,punctations test" do
