@@ -7,15 +7,12 @@ describe Rot do
     it "returns unchanged sentence when run without argument" do
       sample = Rot.new("abc")
       expect(sample.encrypt).to eql("abc")
-
     end
   end
 
-  context "run with key: 1" do
-    it "returns shifted by one" do
+    it "returns shifted by key: 1 when argument is 1" do
       sample = Rot.new("abc")
       expect(sample.encrypt(1)).to eql("bcd")
-      end
     end
 
   context "run with key: 2" do
