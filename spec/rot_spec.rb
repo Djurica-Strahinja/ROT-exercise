@@ -4,11 +4,10 @@ require "rot"
 
 describe Rot do
   describe ".encrypt" do
-  context "run without key" do
-    it "returns unchanged sentence" do
+    it "returns unchanged sentence when run without argument" do
       sample = Rot.new("abc")
       expect(sample.encrypt).to eql("abc")
-      end
+
     end
   end
 
