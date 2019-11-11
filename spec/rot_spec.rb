@@ -20,11 +20,9 @@ describe Rot do
       expect(sample.encrypt(2)).to eql("cde")
     end
 
-  context "run with key: 2,punctations test" do
     it "returns unchanged punctations" do
       sample = Rot.new(",./'][;]!?'")
       expect(sample.encrypt(2)).to eql(",./'][;]!?'")
-      end
     end
 
   context "run with 2 words and key: 1" do
