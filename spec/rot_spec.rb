@@ -4,7 +4,7 @@ require "rot"
 
 describe Rot do
   describe ".encrypt" do
-  context "run without argument" do
+  context "run without key" do
     it "returns unchanged sentence" do
       sample = Rot.new("abc")
       expect(sample.encrypt()).to eql("abc")
@@ -33,16 +33,12 @@ describe Rot do
       end
     end
 
-
-
   context "run with 2 words and key: 1" do
     it "returns shifted words separated by space, characters shifted by one" do
       sample = Rot.new("abc abc")
       expect(sample.encrypt(1)).to eql("bcd bcd")
       end
     end
-
-
 
   context "run with key: 27" do
     it "returns words shifted by key: 1'" do
@@ -51,6 +47,7 @@ describe Rot do
       end
     end
 
+#test for examples from assignment
   context "run with key: 5, word 'trl'" do
     it "returns word shifted by key: 5, and get 'omg'" do
       sample = Rot.new("omg")
@@ -71,4 +68,25 @@ describe Rot do
       expect(sample.encrypt(26)).to eql("Cool")
       end
     end
+
+  context "run with key: 13, words 'The quick brown fox jumps over the lazy dog.'" do
+    it "returns word shifted by key: 13, and get 'Gur dhvpx oebja sbk whzcf bire gur ynml
+qbt.'" do
+      sample = Rot.new("The quick brown fox jumps over the lazy dog.")
+      expect(sample.encrypt(13)).to eql("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
+      end
+    end
+
+  context "run with key: 13, words 'Gur dhvpx oebja sbk whzcf bire gur ynml qbt.'" do
+    it "returns word shifted by key: 13, and get 'The quick brown fox jumps over the lazy dog.'" do
+      sample = Rot.new("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
+      expect(sample.encrypt(13)).to eql("The quick brown fox jumps over the lazy dog.")
+      end
+    end
+
+
+
+
+
+
   end
