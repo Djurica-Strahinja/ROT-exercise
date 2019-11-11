@@ -26,10 +26,10 @@ describe Rot do
       end
     end
 
-  context "run with key: 2, and punctations 'What is your name? My name is: John.'" do
-    it "returns words shifted by two, and punctations 'Yjcv ku aqwt pcog? Oa pcog ku: Lqjp.'" do
-      sample = Rot.new("What is your name? My name is: John.")
-      expect(sample.encrypt(2)).to eql("Yjcv ku aqwt pcog? Oa pcog ku: Lqjp.")
+  context "run with key: 2,punctations test" do
+    it "returns unchanged punctations" do
+      sample = Rot.new(",./'][;]!?'")
+      expect(sample.encrypt(2)).to eql(",./'][;]!?'")
       end
     end
 
@@ -69,20 +69,6 @@ describe Rot do
     it "returns word shifted by key: 26, and get 'Cool'" do
       sample = Rot.new("Cool")
       expect(sample.encrypt(26)).to eql("Cool")
-      end
-    end
-
-  context "run with key: 13, sentence 'The quick brown fox jumps over the lazy dog.'" do
-    it "returns word shifted by key: 13, and get 'Gur dhvpx oebja sbk whzcf bire gur ynml qbt.'" do
-      sample = Rot.new("The quick brown fox jumps over the lazy dog.")
-      expect(sample.encrypt(13)).to eql("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
-      end
-    end
-
-  context "run with key: 13, sentence 'Gur dhvpx oebja sbk whzcf bire gur ynml qbt.'" do
-    it "returns word shifted by key: 13, and get 'The quick brown fox jumps over the lazy dog.'" do
-      sample = Rot.new("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
-      expect(sample.encrypt(13)).to eql("The quick brown fox jumps over the lazy dog.")
       end
     end
   end
