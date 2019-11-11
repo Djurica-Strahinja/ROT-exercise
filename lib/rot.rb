@@ -56,3 +56,5 @@ class Rot
     end
   end
 end
+sample = Rot.new ("Abc")
+puts sample.encrypt(52)
