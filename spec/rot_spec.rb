@@ -25,11 +25,9 @@ describe Rot do
       expect(sample.encrypt(2)).to eql(",./'][;]!?'")
     end
 
-  context "run with 2 words and key: 1" do
-    it "returns shifted words separated by space, characters shifted by one" do
+    it "ignores spaces when decrypting" do
       sample = Rot.new("abc abc")
       expect(sample.encrypt(1)).to eql("bcd bcd")
-      end
     end
 
   context "run with key: 27" do
