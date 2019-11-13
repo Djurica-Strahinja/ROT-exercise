@@ -44,37 +44,36 @@ describe Rot do
         end
       end
 
-    context "run with key: 5, word 'trl'" do
-      it "returns word shifted by key: 5, and get 'omg'" do
+    context "run with key: 5" do
+      it "returns word shifted by key: 5" do
         sample = Rot.new("omg")
         expect(sample.encrypt(5)).to eql("trl")
         end
       end
 
-    context "run with key: 0, word 'c'" do
-      it "returns word shifted by key: 0, and get 'c'" do
+    context "run with key: 0" do
+      it "returns word shifted by key: 0" do
         sample = Rot.new("c")
         expect(sample.encrypt(0)).to eql("c")
         end
       end
 
-    context "run with key: 26, words 'Cool'" do
-      it "returns word shifted by key: 26, and get 'Cool'" do
+    context "run with key: 26" do
+      it "returns word shifted by key: 26" do
         sample = Rot.new("Cool")
         expect(sample.encrypt(26)).to eql("Cool")
         end
       end
 
-    context "run with key: 13, words 'The quick brown fox jumps over the lazy dog.'" do
-      it "returns word shifted by key: 13, and get 'Gur dhvpx oebja sbk whzcf bire gur ynml
-  qbt.'" do
+    context "run with key: 13" do
+      it "returns words shifted by key: 13" do
         sample = Rot.new("The quick brown fox jumps over the lazy dog.")
         expect(sample.encrypt(13)).to eql("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
         end
       end
 
-    context "run with key: 13, words 'Gur dhvpx oebja sbk whzcf bire gur ynml qbt.'" do
-      it "returns word shifted by key: 13, and get 'The quick brown fox jumps over the lazy dog.'" do
+    context "run with key: 13" do
+      it "returns words shifted by key: 13" do
         sample = Rot.new("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.")
         expect(sample.encrypt(13)).to eql("The quick brown fox jumps over the lazy dog.")
         end
