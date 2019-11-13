@@ -1,9 +1,6 @@
-#!/usr/bin/env ruby
-
 class Rot
   def initialize(sentence)
     @sentence = sentence
-
   end
 
   def encrypt(key=0)
@@ -12,17 +9,17 @@ class Rot
     @sentence.each_char do |letter|
 
       if (65..90).include? letter.ord
-        new = (letter.ord + key_mod)
-        if new > 90
-        new = new % 90 + 64
+        coded_char = letter.ord + key_mod
+        if coded_char > 90
+          coded_char = coded_char % 90 + 64
         end
-        coded +=  new.chr
+        coded +=  coded_char.chr
       elsif (97..122).include? letter.ord
-        new = (letter.ord + key_mod)
-        if new > 122
-        new = new % 122 + 96
+        coded_char = letter.ord + key_mod
+        if coded_char > 122
+          coded_char = coded_char % 122 + 96
         end
-        coded +=  new.chr
+        coded +=  coded_char.chr
       else
         coded += letter
       end
